@@ -1,9 +1,13 @@
 <div class="container">
 
-	<app-map class='map'></app-map>
+	<app-map class='map' (selectedDistrict)="changeSelectedDistrict($event)"></app-map>
 
 	<div class='left-column'>
 		<app-hpb class='hpb'></app-hpb>
 		<app-lanka-daily class='lanka-daily'></app-lanka-daily>
+	</div>
+
+	<div class='right-column'>
+		<app-district-details class='district-details' [district]="selectedDistrict" ></app-district-details>
 	</div>
 </div>

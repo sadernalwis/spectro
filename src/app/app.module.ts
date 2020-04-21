@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { LankaDailyComponent } from './lanka-daily/lanka-daily.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { DistrictDetailsComponent } from './district-details/district-details.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
 		AppComponent,
 		MapComponent,
 		HpbComponent,
-		LankaDailyComponent
+		LankaDailyComponent,
+		DistrictDetailsComponent
 	],
 	imports: [
 		BrowserModule,

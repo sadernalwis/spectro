@@ -12,14 +12,16 @@
 	grid-area: col-1;
 }
 
+.right-column {
+	display: flex;
+	flex-direction: column;
+	grid-area: col-3;
+}
+
 .map {
 	position: absolute;
 }
 
-.hpb {
-	margin: 10px;
-}
-
-.lanka-daily {
+.hpb, .lanka-daily, .district-details {
 	margin: 10px;
 }

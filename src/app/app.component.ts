@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 
 @Component({
 	selector: 'app-root',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+	constructor(private cd: ChangeDetectorRef) { }
+
+	selectedDistrict: string;
+
+	changeSelectedDistrict($event: string) {
+		this.selectedDistrict = $event;
+		
+		// need this because google maps seems to mess with updates
+		this.cd.detectChanges(); 
+	}
 }
