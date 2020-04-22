@@ -1,0 +1,8 @@
+<mat-card>
+	<mat-card-title>Hospitals</mat-card-title>
+	<mat-card-content>
+		<div *ngFor="let category of hospital_categories">
+			<mat-checkbox [(ngModel)]="category.isChecked" (change)="changeSelection()">{{category.name}}</mat-checkbox>
+		</div>
+	</mat-card-content>
+</mat-card>

@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
 	private HPB_API_URL = 'https://www.hpb.health.gov.lk/api/get-current-statistical';
-	private csvDaily = 'https://raw.githubusercontent.com/arimacdev/covid19-srilankan-data/master/Daily/covid_lk.csv'
+	private csvDaily = 'https://raw.githubusercontent.com/arimacdev/covid19-srilankan-data/master/Daily/covid_lk.csv';
+	private hospitals = '/assets/hospitals.csv';
 
 	constructor(private http: HttpClient) { }
 
@@ -19,4 +20,7 @@ export class DataService {
 		return this.http.get(this.csvDaily, {responseType: 'text'});
 	}
 
+	getHostpitals() {
+		return this.http.get(this.hospitals, {responseType: 'text'});
+	}
 }
