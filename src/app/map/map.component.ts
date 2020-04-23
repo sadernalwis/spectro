@@ -44,13 +44,34 @@ export class MapComponent implements OnInit, AfterViewInit {
 			strokeWeight: 1,
 			strokeColor: 'black',
 			fillColor: 'grey',
-			fillOpacity: 0.8
+			fillOpacity: 0.2
 		})
 
 		this.gmap.data.addListener('mouseover', (event) => {
 			// console.log(event.feature.j.province_name);
 			// console.log(event.feature.getProperty('district_name'));
 			this.selectedDistrict.emit(event.feature.getProperty('district_name'));
+			this.gmap.data.revertStyle();
+			this.gmap.data.overrideStyle(event.feature, {fillOpacity: 0.8});
+		});
+
+		this.gmap.data.addListener('mouseout', (event) => {
+			// console.log(event.feature.j.province_name);
+			// console.log(event.feature.getProperty('district_name'));
+			// this.selectedDistrict.emit(event.feature.getProperty('district_name'));
+			this.gmap.data.revertStyle();
+			// this.gmap.data.overrideStyle(event.feature, {fillOpacity: 0.8});
+		});
+
+
+		this.gmap.data.addListener('click', event => {
+			console.log(event);
+
+			let bounds = new google.maps.LatLngBounds();
+			event.feature.getGeometry().forEachLatLng(latlng => {
+				bounds.extend(latlng);
+			});
+			this.gmap.fitBounds(bounds);
 		});
 	}
 }

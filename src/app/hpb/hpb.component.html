@@ -1,13 +1,24 @@
 <mat-card>
 
-	<mat-card-title>Health Promotion Bureau</mat-card-title>
+	<mat-card-title>Current Stats</mat-card-title>
 
 	<mat-card-content>
-		<div>Local new cases: {{hpbResponse?.data.local_new_cases}}</div>
-		<div>Local active cases: {{hpbResponse?.data.local_active_cases}}</div>
-		<div>Local total cases: {{hpbResponse?.data.local_total_cases}}</div>
-		<div>Local deaths: {{hpbResponse?.data.local_deaths}}</div>
-		<div>Local recovered: {{hpbResponse?.data.local_recovered}}</div>
+		<div class='stats-container'>
+			<div>Total</div>
+			<div class='val total'>{{hpbResponse?.data.local_total_cases}}</div>
+
+			<div>New</div>
+			<div class='val new'>{{hpbResponse?.data.local_new_cases}}</div>
+			
+			<div>Active</div>
+			<div class='val active'>{{hpbResponse?.data.local_active_cases}}</div>
+			
+			<div>Recovered</div>
+			<div class='val recovered'>{{hpbResponse?.data.local_recovered}}</div>
+
+			<div>Deaths</div>
+			<div class='val death'>{{hpbResponse?.data.local_deaths}}</div>			
+		</div>
 	</mat-card-content>
 
 </mat-card>
