@@ -38,21 +38,21 @@ export class LankaDailyComponent implements OnInit, AfterViewInit {
 		const died = jsonData[1];
 		const recovered = jsonData[2];
 
-		this.columns = ['Date', 'Confirmed', 'Died', 'Recovered'];
+		this.columns = ['Date', 'Confirmed', 'Recovered', 'Died'];
 
 		// transform jsondata to the array format used by google charts
 		this.data = Object.keys(confirmed).map(date => {
-			return [date, Number(confirmed[date]), Number(died[date]), Number(recovered[date])]
+			return [date, Number(confirmed[date]), Number(recovered[date]), Number(died[date])]
 		})
 
-		let chartOptions = {
-			title: "Lanka Daily",
-			vAxis: {
-				title: "People"
-			}
-		};
+		// let chartOptions = {
+		// 	title: "Lanka Daily",
+		// 	vAxis: {
+		// 		title: "People"
+		// 	}
+		// };
 
-		this.options = (google.charts as any).Line.convertOptions(chartOptions);
+		// this.options = (google.charts as any).Line.convertOptions(chartOptions);
 	}
 
 }

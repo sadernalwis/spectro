@@ -1,3 +1,30 @@
-.mat-card{
-	background: rgba($color: #fff, $alpha: 0.7);
+.stats-container{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 10px;
+}
+
+.val {
+	font-size: large;
+	font-weight: bold;
+}
+
+.total {
+	color: darkblue;
+}
+
+.new {
+	color: chocolate;
+}
+
+.active {
+	color: darkorange;
+}
+
+.recovered {
+	color: cadetblue;
+}
+
+.death {
+	color: red;
 }

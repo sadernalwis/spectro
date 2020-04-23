@@ -11,22 +11,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { LankaDailyComponent } from './lanka-daily/lanka-daily.component';
 import { GoogleChartsModule } from 'angular-google-charts';
-
+import { DistrictDetailsComponent } from './district-details/district-details.component';
+import { HospitalsComponent } from './hospitals/hospitals.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		MapComponent,
 		HpbComponent,
-		LankaDailyComponent
+		LankaDailyComponent,
+		DistrictDetailsComponent,
+		HospitalsComponent
 	],
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
+		FormsModule,
 		GoogleMapsModule,
 		HttpClientModule,
 		MatCardModule,
-		GoogleChartsModule
+		MatCheckboxModule,
+		GoogleChartsModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

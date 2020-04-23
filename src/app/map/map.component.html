@@ -1,2 +1,4 @@
 <google-map height="100vh" width="100vw" [center]="center" [zoom]="zoom">
+	<map-marker #marker *ngFor="let hospital of hospitals" [position]="hospital.location" [title]="hospital.name" [options]='hospitalMarkerOptions'>
+	</map-marker>
 </google-map>

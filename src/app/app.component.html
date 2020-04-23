@@ -1,9 +1,15 @@
 <div class="container">
 
-	<app-map class='map'></app-map>
+	<app-map class='map' (selectedDistrict)="changeSelectedDistrict($event)" [hospitals]='selectedHospitals'></app-map>
 
 	<div class='left-column'>
-		<app-hpb class='hpb'></app-hpb>
-		<app-lanka-daily class='lanka-daily'></app-lanka-daily>
+		<app-hpb class='cards'></app-hpb>
+		<app-lanka-daily class='cards'></app-lanka-daily>
+		<app-hospitals class='cards' (selectedHospitals)="updateHospitals($event)"></app-hospitals>
 	</div>
+
+	<div class='right-column'>
+		<app-district-details class='cards' [district]="selectedDistrict" ></app-district-details>
+	</div>
+
 </div>
