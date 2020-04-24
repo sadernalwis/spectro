@@ -1,9 +1,9 @@
 <mat-card>
-	<mat-card-title>District Details</mat-card-title>
+	<div><h1>Location </h1></div>
+
+  <div *ngFor="let category of district">
+	  <mat-card-title>  {{category}}</mat-card-title>
+  </div>
 	<mat-card-content>
-
-		<!-- <div>Province: {{province}}</div> -->
-		<div>Selected District: {{district}}</div>
-
 	</mat-card-content>
 </mat-card>

@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DistrictDetailsComponent implements OnInit {
 
-	// province: string;
+	@Input() province: any[];
 	@Input() district: string;
 
 	constructor() { }

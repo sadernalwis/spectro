@@ -15,6 +15,8 @@ import { LankaDailyComponent } from './lanka-daily/lanka-daily.component';
 import { DistrictDetailsComponent } from './district-details/district-details.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { StackComponentComponent } from './stack-component/stack-component.component';
+import { TwitterComponentComponent } from './twitter-component/twitter-component.component';
+import { NewsComponentComponent } from './news-component/news-component.component';
 
 @NgModule({
    declarations: [
@@ -24,7 +26,9 @@ import { StackComponentComponent } from './stack-component/stack-component.compo
       LankaDailyComponent,
       DistrictDetailsComponent,
       HospitalsComponent,
-      StackComponentComponent
+      StackComponentComponent,
+      TwitterComponentComponent,
+      NewsComponentComponent
    ],
    imports: [
       BrowserModule,
