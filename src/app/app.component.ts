@@ -10,7 +10,8 @@ import { Hospital } from './hospitals/hospital';
 export class AppComponent {
 	constructor(private cd: ChangeDetectorRef) { }
 		selectedDistrict: string;
-		selectedHospitals: Hospital[];
+    selectedHospitals: Hospital[];
+    selectedInstitutions: string[];
 
 	changeSelectedDistrict($event: string) {
 		this.selectedDistrict = $event;

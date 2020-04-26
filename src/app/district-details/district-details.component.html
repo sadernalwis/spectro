@@ -4,6 +4,12 @@
   <div *ngFor="let category of district">
 	  <mat-card-title>  {{category}}</mat-card-title>
   </div>
+
+  <div class='category-list'>
+    <div *ngFor="let institution of all_institutions">
+      <mat-checkbox [(ngModel)]="institution.isChecked" (change)="changeSelection()">{{institution.name}}</mat-checkbox>
+    </div>
+  </div>
 	<mat-card-content>
 	</mat-card-content>
 </mat-card>

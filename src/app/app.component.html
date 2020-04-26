@@ -58,15 +58,16 @@
       <td>
         <div style="position: relative;">
           <div class="cards" id="models">
+
+            <div class="card" style="width: 200px;">
+              <app-hpb class='cards'></app-hpb>
+            </div>
             <div class="card" style="height: 375px;">
               <app-map class='map' (selectedDistrict)="changeSelectedDistrict($event)" [hospitals]='selectedHospitals'>
               </app-map>
             </div>
             <div class="card" style="width: 300px;">
               <app-district-details class='cards' [district]="selectedDistrict"></app-district-details>
-            </div>
-            <div class="card">
-              <app-hospitals class='cards' (selectedHospitals)="updateHospitals($event)"></app-hospitals>
             </div>
           </div>
         </div>
@@ -77,7 +78,7 @@
         <div style="position: relative;">
           <div class="cards">
             <div class="card">
-              <app-hpb class='cards'></app-hpb>
+              <app-hospitals class='cards' (selectedHospitals)="updateHospitals($event)"></app-hospitals>
             </div>
             <div class="card">
               <app-lanka-daily class='cards'></app-lanka-daily>
