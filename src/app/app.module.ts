@@ -8,6 +8,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { GoogleChartsModule } from 'angular-google-charts';
 
+import { AgmCoreModule } from '@agm/core';
+
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { HpbComponent } from './hpb/hpb.component';
@@ -17,6 +19,7 @@ import { HospitalsComponent } from './hospitals/hospitals.component';
 import { StackComponentComponent } from './stack-component/stack-component.component';
 import { TwitterComponentComponent } from './twitter-component/twitter-component.component';
 import { NewsComponentComponent } from './news-component/news-component.component';
+import { InstitutionsComponentComponent } from './institutions-component/institutions-component.component';
 
 @NgModule({
    declarations: [
@@ -28,7 +31,8 @@ import { NewsComponentComponent } from './news-component/news-component.componen
       HospitalsComponent,
       StackComponentComponent,
       TwitterComponentComponent,
-      NewsComponentComponent
+      NewsComponentComponent,
+      InstitutionsComponentComponent
    ],
    imports: [
       BrowserModule,
