@@ -1,4 +1,5 @@
 # Spectro
+## Master Branch @https://github.com/denesh-r/spectro
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
@@ -37,4 +38,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Common Resolutions
 Port in use - Linux
-sudo kill $(sudo lsof -t -i:4200)
+
+`sudo kill $(sudo lsof -t -i:4200)`
