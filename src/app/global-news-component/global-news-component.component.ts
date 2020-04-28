@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 import { DataService } from '../data.service';
 
 @Component({
-	selector: 'app-news-component',
-	templateUrl: './news-component.component.html',
-	styleUrls: ['./news-component.component.css']
+  selector: 'app-global-news-component',
+  templateUrl: './global-news-component.component.html',
+  styleUrls: ['./global-news-component.component.css']
 })
-export class NewsComponentComponent implements OnInit {
+export class GlobalNewsComponentComponent implements OnInit {
 
 	news = {
     status: '',
@@ -38,14 +35,13 @@ export class NewsComponentComponent implements OnInit {
 
 	async getNews() {
 
-    const data = await this.dataService.getNEWS('covid-19').toPromise();
+    const data = await this.dataService.getNEWS("sri+lanka").toPromise();
     if(!data){
       console.log("no news data.");
     }else{
       console.log("news data available.");
       this.news = JSON.parse(data);
     }
-
 
 	}
 

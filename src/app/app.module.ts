@@ -6,9 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
-import { GoogleChartsModule } from 'angular-google-charts';
 
-import { AgmCoreModule } from '@agm/core';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
@@ -20,6 +19,7 @@ import { StackComponentComponent } from './stack-component/stack-component.compo
 import { TwitterComponentComponent } from './twitter-component/twitter-component.component';
 import { NewsComponentComponent } from './news-component/news-component.component';
 import { InstitutionsComponentComponent } from './institutions-component/institutions-component.component';
+import { GlobalNewsComponentComponent } from './global-news-component/global-news-component.component';
 
 @NgModule({
    declarations: [
@@ -32,7 +32,8 @@ import { InstitutionsComponentComponent } from './institutions-component/institu
       StackComponentComponent,
       TwitterComponentComponent,
       NewsComponentComponent,
-      InstitutionsComponentComponent
+      InstitutionsComponentComponent,
+      GlobalNewsComponentComponent
    ],
    imports: [
       BrowserModule,

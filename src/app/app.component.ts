@@ -17,7 +17,8 @@ export class AppComponent {
 		this.selectedDistrict = $event;
 
 	// need this because google maps seems to mess with updates
-		this.cd.detectChanges();
+    this.cd.detectChanges();
+    
 	}
 
 	updateHospitals($hospitals: Hospital[]) {
