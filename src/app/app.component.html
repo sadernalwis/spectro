@@ -1,143 +1,72 @@
-<!-- <div class="container">
+<!-- <app-lanka-daily></app-lanka-daily>
+<app-twitter-component></app-twitter-component> -->
 
-	<app-map class='map' (selectedDistrict)="changeSelectedDistrict($event)" [hospitals]='selectedHospitals'></app-map>
 
-	<div class='left-column'>
-		<app-hpb class='cards'></app-hpb>
-		<app-lanka-daily class='cards'></app-lanka-daily>
-		<app-hospitals class='cards' (selectedHospitals)="updateHospitals($event)"></app-hospitals>
-	</div>
-
-	<div class='right-column'>
-		<app-district-details class='cards' [district]="selectedDistrict" ></app-district-details>
+<header>
+  <img src="/assets/images/covid19.svg" alt="">
+  <div class="sub-logo">
+    <img src="/assets/images/covid19.svg" alt="">
   </div>
+  <h2>
+    Coronavirus (COVID-19) Situational Report - Sri Lanka
+  </h2>
+</header>
 
-	<div class='right-column'>
-    <app-district-details class='cards' [district]="selectedDistrict" ></app-district-details>
-    <app-stack-component class='cards'></app-stack-component>
-	</div>
 
-</div> -->
-<!-- <div class="main-css-grid">
+<article class="container-fluid">
 
-  <div class="cards">
-    <div class="card" style="height: 375px;">
-      <app-map class='map' (selectedDistrict)="changeSelectedDistrict($event)" [hospitals]='selectedHospitals'>
+  <div class="row">
+    <div class="col-lg-3">
+      <app-status-component>
+      </app-status-component>
+    </div>
+    <div class="col-lg-6 position-relative">
+      <div class="selected-district">
+        <app-district-details [district]="selectedDistrict">
+        </app-district-details>
+      </div>
+      <app-map (selectedDistrict)="changeSelectedDistrict($event)" [hospitals]='selectedHospitals'>
       </app-map>
     </div>
-    <div class="card" style="width: 300px;">
-      <app-district-details class='cards' [district]="selectedDistrict"></app-district-details>
-    </div>
-    <div class="card">
-      <app-hospitals class='cards' (selectedHospitals)="updateHospitals($event)"></app-hospitals>
-    </div>
-  </div>
-  <div class="cards">
-    <div class="card">
-      <app-hpb class='cards'></app-hpb>
-    </div>
-    <div class="card">
-      <app-lanka-daily class='cards'></app-lanka-daily>
+    <div class="col-lg-3">
+      <app-hospitals (selectedHospitals)="updateHospitals($event)">
+      </app-hospitals>
+
+      <app-district-cases></app-district-cases>
+
+
+
+
+      <!-- <app-global-news-component></app-global-news-component> -->
     </div>
   </div>
-  <div class="cards">
-    <div class="card">
-      <app-twitter-component></app-twitter-component>
+  <div class="row">
+
+    <div class="col-lg-3">
+      <app-chart-new-cases>
+      </app-chart-new-cases>
     </div>
-    <div class="card">
-      <app-news-component></app-news-component>
+    <div class="col-lg-6">
+      <app-chart-total-active>
+      </app-chart-total-active>
+    </div>
+    <div class="col-lg-3">
+      <app-chart-daily-recovery>
+      </app-chart-daily-recovery>
     </div>
   </div>
-</div> -->
 
+  <div class="row">
+    <div class="col-lg-3">
 
-<div class="container">
+    </div>
 
-  <table style="position: absolute; justify-self: baseline;place-self: first baseline;">
-    <tr>
-      <td>
-        <div style="position: relative;">
-          <div class="cards" id="models">
+    <div class="col-lg-6">
+      <!-- <app-news-component></app-news-component> -->
+    </div>
+    <div class="col-lg-3">
 
-            <div class="card" style="width: 200px;">
-              <app-hpb class='cards'></app-hpb>
-            </div>
-            <div class="card" style="height: 375px;">
-              <app-map class='map' (selectedDistrict)="changeSelectedDistrict($event)" [hospitals]='selectedHospitals'>
-              </app-map>
-            </div>
-            <div class="card" style="width: 300px;">
-              <app-district-details class='cards' [district]="selectedDistrict"></app-district-details>
-            </div>
-          </div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div style="position: relative;">
-          <div class="cards">
-            <div class="card">
-              <app-hospitals class='cards' (selectedHospitals)="updateHospitals($event)"></app-hospitals>
-            </div>
-            <div class="card">
-              <app-lanka-daily class='cards'></app-lanka-daily>
-            </div>
-            <div class="card"style="height: 100px;">
-              <app-twitter-component></app-twitter-component>
-            </div>
-          </div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div style="position: relative;">
-          <div class="cards">
-            <div class="card" style="width: 600px;">
-              <app-news-component></app-news-component>
-            </div>
-            <div class="card" style="width: 600px;">
-              <app-global-news-component></app-global-news-component>
-            </div>
-          </div>
-        </div>
-      </td>
-    </tr>
-  </table>
+    </div>
+  </div>
 
-</div>
-
-
-<!-- <div class="card"> -->
-
-
-
-<!-- <form class="checkout" onsubmit="" id="checkout_form">
-                          <div class="checkout-header">
-                              <h1 class="checkout-title">
-                                  Check-out
-                                  <span class="checkout-price">>></span>
-                              </h1>
-                          </div>
-                          <p>
-                              <input type="text" class="checkout-input checkout-name" placeholder="PASSPORT" autofocus>
-                              <input type="text" class="checkout-input checkout-exp" placeholder="DD">
-                              <input type="text" class="checkout-input checkout-exp" placeholder="MM">
-                              <input type="text" class="checkout-input checkout-exp" placeholder="YY">
-                          </p>
-                          <p>
-                              <input type="text" class="checkout-input checkout-name" placeholder="Your name" autofocus>
-                              <input type="text" class="checkout-input checkout-exp" placeholder="MM">
-                              <input type="text" class="checkout-input checkout-exp" placeholder="YY">
-                          </p>
-                          <p>
-                              <input type="text" class="checkout-input checkout-card" placeholder="4111 1111 1111 1111">
-                              <input type="text" class="checkout-input checkout-cvc" placeholder="CVC">
-                          </p>
-                          <p>
-                              <input type="button" value="CHECK-OUT" class="checkout-btn" id="checkout_btn">
-                          </p>
-                      </form> -->
-
-<!-- </div> -->
+</article>

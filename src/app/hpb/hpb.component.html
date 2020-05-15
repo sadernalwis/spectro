@@ -1,24 +1,107 @@
-<mat-card>
+   <div class="card data-current-card">
+     <div class="card-title">
+       Current Status
+     </div>
+     <div class="card-body">
+       <div class="card-content">
+         <div class="card-sub-title">
+           SRI LANKA TOTAL
+         </div>
 
-	<mat-card-title>Current Stats</mat-card-title>
+         <div class="data-current">
+           <div>
+             <div class="data-card data-confirmed">
+               <p>Confirmed</p>
+               <div class="text-count">
+                 {{ hpbResponse?.data.local_total_cases }}
+               </div>
+             </div>
 
-	<mat-card-content>
-		<div class='stats-container'>
-			<div>Total</div>
-			<div class='val total'>{{hpbResponse?.data.local_total_cases}}</div>
+             <div class=" data-card data-recovered">
+               <p>
+                 Recovered
+               </p>
+               <div class="text-count">
+                 {{ hpbResponse?.data.local_recovered }}
+               </div>
+             </div>
+           </div>
 
-			<div>New</div>
-			<div class='val new'>{{hpbResponse?.data.local_new_cases}}</div>
-			
-			<div>Active</div>
-			<div class='val active'>{{hpbResponse?.data.local_active_cases}}</div>
-			
-			<div>Recovered</div>
-			<div class='val recovered'>{{hpbResponse?.data.local_recovered}}</div>
+           <div>
+             <div class="data-card data-deaths">
+               <p>
+                 Deaths
+               </p>
+               <div class="text-count">
+                 {{ total_deaths? total_deaths :0 }}
+               </div>
+             </div>
 
-			<div>Deaths</div>
-			<div class='val death'>{{hpbResponse?.data.local_deaths}}</div>			
-		</div>
-	</mat-card-content>
+             <div class="data-card data-hospitalized">
+               <p class="text-black">
+                 Hospitalized
+               </p>
+               <div class="text-count">
+                 {{ total_deaths? total_deaths :0 }}
+               </div>
+             </div>
+           </div>
+         </div>
 
-</mat-card>
+       </div>
+
+       <div class="card-content">
+         <div class="card-sub-title">
+           TODAY
+         </div>
+
+         <div class="data-today">
+           <div>
+             <div class="data-card data-new-cases">
+               <p class="text-red">New cases</p>
+               <div class="text-count">
+                 {{ new_cases?new_cases:'0' }}
+               </div>
+             </div>
+
+             <div class="data-card data-new-recovered">
+               <p class="text-green">
+                 Recovered
+               </p>
+               <div class="text-count">
+                 {{ new_recovery?new_recovery:'0' }}
+               </div>
+             </div>
+           </div>
+
+           <div>
+             <div class="data-card data-new-deaths">
+               <p class="text-black">
+                 Deaths
+               </p>
+               <div class="text-count">
+                 {{ new_deaths?new_deaths:'0' }}
+               </div>
+             </div>
+
+             <div class="data-card data-growth-rate">
+               <p class="text-black">
+                 Growth Rate
+               </p>
+               <div class="text-count">
+                 2.96%
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div class="card-content">
+         <div class="card-sub-title">
+           TOTAL CASES - Breakdown
+         </div>
+         <app-chart-total-cases>
+         </app-chart-total-cases>
+       </div>
+     </div>
+   </div>

@@ -2,14 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { MaterialDesignModule } from './material-design/material-design.module';
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FormsModule } from '@angular/forms';
 
-import { GoogleChartsModule } from 'angular-google-charts';
-
-import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { HpbComponent } from './hpb/hpb.component';
 import { LankaDailyComponent } from './lanka-daily/lanka-daily.component';
@@ -20,6 +16,12 @@ import { TwitterComponentComponent } from './twitter-component/twitter-component
 import { NewsComponentComponent } from './news-component/news-component.component';
 import { InstitutionsComponentComponent } from './institutions-component/institutions-component.component';
 import { GlobalNewsComponentComponent } from './global-news-component/global-news-component.component';
+import { ChartDailyRecoveryComponent } from './chart-daily-recovery/chart-daily-recovery.component';
+import { ChartTotalActiveComponent } from './chart-total-active/chart-total-active.component';
+import { ChartNewCasesComponent } from './chart-new-cases/chart-new-cases.component';
+import { ChartTotalCasesComponent } from './chart-total-cases/chart-total-cases.component';
+import { DistrictCasesComponent } from './district-cases/district-cases.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
    declarations: [
@@ -33,17 +35,20 @@ import { GlobalNewsComponentComponent } from './global-news-component/global-new
       TwitterComponentComponent,
       NewsComponentComponent,
       InstitutionsComponentComponent,
-      GlobalNewsComponentComponent
+      GlobalNewsComponentComponent,
+      ChartDailyRecoveryComponent,
+      ChartTotalActiveComponent,
+      AppComponent,
+      ChartNewCasesComponent,
+      ChartTotalCasesComponent,
+      DistrictCasesComponent,
    ],
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
-      FormsModule,
-      GoogleMapsModule,
       HttpClientModule,
-      MatCardModule,
-      MatCheckboxModule,
-      GoogleChartsModule
+      NgApexchartsModule,
+      MaterialDesignModule
    ],
    providers: [],
    bootstrap: [

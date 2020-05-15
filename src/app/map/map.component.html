@@ -1,8 +1,21 @@
-<!-- <google-map height="100vh" width="100vw" [center]="center" [zoom]="zoom"> -->
-  <!-- <agm-map [latitude]="center.lat" [longitude]="center.lng" [disableDefaultUI]="'true'" [mapTypeId]="'satellite'" ></agm-map> -->
+<div class="card data-map-card">
+  <div class="card-title">
+    Islandwide Confirmed Cases
+  </div>
+  <div class="card-body">
+    <google-map [center]="center" [zoom]="zoom">
+      <map-marker #marker *ngFor="let hospital of hospitals" [position]="hospital.location" [title]="hospital.name">
+      </map-marker>
+      <map-marker #marker *ngFor="let i of district_infections" [position]="i.location" [label]='i.label_options'
+        [title]="i.title" [options]='i.marker_options' (mapMouseover)="openInfoWindow(marker,i.title)">
+        <map-info-window>
+          <h4>
+            {{ district_name }}
+          </h4>
+        </map-info-window>
+      </map-marker>
 
-  <!-- <google-map height="375px"  [center]="center" [zoom]="zoom"  [mapTypeId]="'satellite'"> -->
-    <google-map height="375px" width="400px"  [center]="center" [zoom]="zoom" >
-	  <map-marker #marker *ngFor="let hospital of hospitals" [position]="hospital.location" [title]="hospital.name" [options]='hospitalMarkerOptions'>
-	</map-marker>
-</google-map>
+    </google-map>
+
+  </div>
+</div>

@@ -9,7 +9,7 @@ export class DataService {
 	private HPB_API_URL = 'https://www.hpb.health.gov.lk/api/get-current-statistical';
 	private csvDaily = 'https://raw.githubusercontent.com/arimacdev/covid19-srilankan-data/master/Daily/covid_lk.csv';
 	private hospitals = '/assets/hospitals.csv';
-
+	private district_data_url = "https://raw.githubusercontent.com/shandhiviyarajan/covid-19-sl-data/master/district-spread.json";
 	constructor(private http: HttpClient) { }
 
 	getHPBdata() {
@@ -17,15 +17,19 @@ export class DataService {
 	}
 
 	getCSVdaily() {
-		return this.http.get(this.csvDaily, {responseType: 'text'});
+		return this.http.get(this.csvDaily, { responseType: 'text' });
 	}
 
 	getHostpitals() {
-		return this.http.get(this.hospitals, {responseType: 'text'});
+		return this.http.get(this.hospitals, { responseType: 'text' });
 	}
 	getNEWS(query) {
 		var api_key = "3e8e02219bfd46adac9f6b43b06f908f";
 		let url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${api_key}`;
-		return this.http.get(url, {responseType: 'text'});
+		return this.http.get(url, { responseType: 'text' });
+	}
+
+	getDistrictData() {
+		return this.http.get(this.district_data_url, { responseType: 'json' });
 	}
 }
