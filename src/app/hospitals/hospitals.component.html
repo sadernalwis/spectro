@@ -1,10 +1,16 @@
-<mat-card>
-	<mat-card-title>Hospitals</mat-card-title>
-	<mat-card-content>
-		<div class='category-list'>
-			<div *ngFor="let category of hospital_categories">
-				<mat-checkbox [(ngModel)]="category.isChecked" (change)="changeSelection()">{{category.name}}</mat-checkbox>
-			</div>
-		</div>
-	</mat-card-content>
-</mat-card>
+<div class="card hospital-category-card">
+  <div class="card-title">
+    Hospitals
+  </div>
+  <div class="card-body">
+
+    <ul class='category-list'>
+      <li *ngFor="let category of hospital_categories let i = index">
+        <input type="checkbox" id="{{ 'hospitals'+i }}" [(ngModel)]="category.isChecked"
+          (change)="changeSelection()" />
+        <label for="{{ 'hospitals' + i }}">{{ category.name }}</label>
+
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+ <div class="card district-cases-card">
+   <div class="card-title">
+     District-wise distribution of COVID-19
+   </div>
+   <div class="card-body">
+     <apx-chart #chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+       [markers]="chartOptions.markers" [yaxis]="chartOptions.yaxis" [fill]="chartOptions.fill"
+       [colors]="chartOptions.colors" [plotOptions]="chartOptions.plotOptions" [dataLabels]="chartOptions.dataLabels">
+     </apx-chart>
+   </div>
+ </div>

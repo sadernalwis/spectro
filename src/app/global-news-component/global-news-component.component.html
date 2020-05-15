@@ -1,16 +1,15 @@
-
 <div *ngFor="let article of news.articles">
-	<a style="text-decoration:none" href="{{article.url}}" rel="noopener noreferrer" target="_blank">
-		<p class="title">
-			{{article.title.toUpperCase()}}
-		</p>
-		<div class="img-div">
-			<img class="img" src="{{article.urlToImage}}" />
-		</div>
-		<p class="content">
-			{{article.content.toUpperCase()}}
-		</p>
+  <a style="text-decoration:none" href="{{ article.url }}" rel="noopener noreferrer" target="_blank">
+    <p class="title">
+      {{ article.title.toUpperCase() }}
+    </p>
+    <div class="img-div">
+      <img class="img" src="{{ article.urlToImage }}" />
+    </div>
+    <p class="content">
+      {{ article.content.toUpperCase() }}
+    </p>
 
-	</a>
+  </a>
 
 </div>
