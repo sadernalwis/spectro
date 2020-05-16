@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
-	selector: 'app-status-component',
-	templateUrl: './hpb.component.html',
-	styleUrls: ['./hpb.component.scss']
+	selector: 'app-current-status',
+	templateUrl: './current-status-component.html'
 })
-export class HpbComponent implements OnInit {
+export class CurrentStatusComponent implements OnInit {
 
 	constructor(private dataService: DataService) { }
 
@@ -35,6 +34,8 @@ export class HpbComponent implements OnInit {
 
 		let n: any = Math.floor(string);
 		if (n >= 10 && n > 0) {
+			return n;
+		} else if (n === 0) {
 			return n;
 		} else {
 			return '0' + n;

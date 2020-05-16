@@ -36,5 +36,9 @@ export class DataService {
 		return this.http.get(this.district_data_url, { responseType: 'json' });
 	}
 
+	getSLNews() {
+		return this.http.get('https://raw.githubusercontent.com/shandhiviyarajan/covid-19-sl-data/master/covid-news.json');
+	}
+
 
 }

@@ -2,11 +2,8 @@
 @import "normalize";
 @import "header";
 
-
-
 div.card {
   background: #FFFFFF;
-  // border: 1px solid #DADADA;
   box-shadow: 0 10px 20px 0 rgba(210, 210, 210, 0.50);
   border-radius: 4px;
   margin-bottom: 30px;
@@ -65,6 +62,7 @@ div.data-current-card {
     border-radius: 6px;
     padding: 15px;
     margin: 0px 0px 20px 0px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, .12);
 
     p {
       color: #000;
@@ -74,7 +72,7 @@ div.data-current-card {
     }
 
     div.text-count {
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 700;
     }
   }
@@ -82,6 +80,7 @@ div.data-current-card {
   div.data-confirmed,
   div.data-new-cases {
     background: lighten($c-red, 30%);
+    border: thin solid $c-red;
 
     div.text-count {
       color: $c-red;
@@ -92,6 +91,7 @@ div.data-current-card {
   div.data-recovered,
   div.data-new-recovered {
     background: lighten($c-green, 40%);
+    border: thin solid $c-green;
 
     div.text-count {
       color: $c-green;
@@ -101,6 +101,7 @@ div.data-current-card {
   div.data-deaths,
   div.data-new-deaths {
     background: lighten($c-black, 75%);
+    border: thin solid $c-black;
 
     div.text-count {
       color: $c-black;
@@ -109,6 +110,7 @@ div.data-current-card {
 
   div.data-hospitalized {
     background: lighten($c-orange, 40%);
+    border: thin solid $c-orange;
 
     div.text-count {
       color: $c-orange;
@@ -118,6 +120,7 @@ div.data-current-card {
 
   div.data-growth-rate {
     background: lighten($c-blue, 40%);
+    border: thin solid $c-blue;
 
     div.text-count {
       color: $c-blue;
@@ -278,5 +281,128 @@ div.daily-recovery-card {
     text-align: Center;
     color: #fff;
     background: lighten($c-green, 0%);
+  }
+}
+
+
+div.card.news-card {
+  position: relative;
+
+  div.card-title {
+    background: $c-red;
+    color: #fff;
+  }
+
+  div.card-body {
+    overflow-y: scroll;
+    height: 486px;
+  }
+
+  ul {
+    li {
+      list-style: none;
+      margin-bottom: 20px;
+      box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      padding: 15px;
+      transition: .1s ease;
+
+      &:active {
+        transform: scale(.96);
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+
+
+
+      }
+
+      div.d-flex {
+        flex-direction: row-reverse;
+
+
+      }
+
+      div.news-body {
+        padding-right: 15px;
+        width: 260px;
+      }
+
+      .news-img {
+        width: auto;
+        height: 100px;
+        border-radius: 6px;
+        overflow: hidden;
+
+
+
+        img {
+          height: 100%;
+
+          outline: 0;
+          border: none;
+        }
+
+
+      }
+
+      div.news-info {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      div.news-date {
+        font-size: 12px;
+        color: $c-red;
+      }
+
+      div.news-author {
+        img {
+          height: 26px;
+        }
+      }
+
+      h3 {
+        font-size: 16px;
+        color: #000;
+        text-decoration: none;
+      }
+
+      p {
+        font-size: 12px;
+        color: #666;
+        text-decoration: none;
+
+      }
+    }
+
+    li:nth-child(odd) {}
+
+    li:nth-child(even) {
+      div.d-flex {
+        display: block !important;
+        flex-direction: row-reverse;
+      }
+
+      div.news-body {
+        padding: 15px 0px 0px 0px;
+        width: auto;
+      }
+
+      .news-img {
+        height: 120px;
+        width: 100%;
+        border-radius: 6px 6px 0px 0px;
+        border: thin solid #d9d9d9;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+    }
   }
 }

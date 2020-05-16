@@ -3,6 +3,32 @@
     Islandwide Confirmed Cases
   </div>
   <div class="card-body">
+
+    <div class="map-marker-selection">
+      <ul>
+        <li>
+          <div>
+            <input type="radio" name="map-marker-data">
+            <label for="">District-wise covid cases </label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input type="radio" name="map-marker-data">
+            <label for="">PCR Test centers</label>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <input type="radio" name="map-marker-data">
+            <label for="">Active Drones</label>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+
     <google-map [center]="center" [zoom]="zoom">
       <map-marker #marker *ngFor="let hospital of hospitals" [position]="hospital.location" [title]="hospital.name">
       </map-marker>

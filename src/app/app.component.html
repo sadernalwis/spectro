@@ -2,42 +2,25 @@
 <app-twitter-component></app-twitter-component> -->
 
 
-<header>
-  <img src="/assets/images/covid19.svg" alt="">
-  <div class="sub-logo">
-    <img src="/assets/images/covid19.svg" alt="">
-  </div>
-  <h2>
-    Coronavirus (COVID-19) Situational Report - Sri Lanka
-  </h2>
-</header>
-
-
+<app-header></app-header>
 <article class="container-fluid">
 
   <div class="row">
     <div class="col-lg-3">
-      <app-status-component>
-      </app-status-component>
+      <app-current-status>
+      </app-current-status>
     </div>
     <div class="col-lg-6 position-relative">
-      <div class="selected-district">
-        <app-district-details [district]="selectedDistrict">
-        </app-district-details>
-      </div>
+      <!-- <app-district-details [district]="selectedDistrict">
+        </app-district-details> -->
       <app-map (selectedDistrict)="changeSelectedDistrict($event)" [hospitals]='selectedHospitals'>
       </app-map>
     </div>
     <div class="col-lg-3">
-      <app-hospitals (selectedHospitals)="updateHospitals($event)">
-      </app-hospitals>
-
+      <!-- <app-hospitals (selectedHospitals)="updateHospitals($event)">
+      </app-hospitals> -->
+      <app-global-news-component></app-global-news-component>
       <app-district-cases></app-district-cases>
-
-
-
-
-      <!-- <app-global-news-component></app-global-news-component> -->
     </div>
   </div>
   <div class="row">
@@ -70,3 +53,6 @@
   </div>
 
 </article>
+
+<app-footer>
+</app-footer>

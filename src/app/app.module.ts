@@ -5,9 +5,10 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { MaterialDesignModule } from './material-design/material-design.module';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { HttpClientModule } from '@angular/common/http';
-
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 import { MapComponent } from './map/map.component';
-import { HpbComponent } from './hpb/hpb.component';
+import { CurrentStatusComponent } from './current-status/current-status-component';
 import { LankaDailyComponent } from './lanka-daily/lanka-daily.component';
 import { DistrictDetailsComponent } from './district-details/district-details.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
@@ -23,11 +24,14 @@ import { ChartTotalCasesComponent } from './chart-total-cases/chart-total-cases.
 import { DistrictCasesComponent } from './district-cases/district-cases.component';
 import { AppComponent } from './app.component';
 
+
 @NgModule({
    declarations: [
+      HeaderComponent,
+      FooterComponent,
       AppComponent,
       MapComponent,
-      HpbComponent,
+      CurrentStatusComponent,
       LankaDailyComponent,
       DistrictDetailsComponent,
       HospitalsComponent,
@@ -41,7 +45,8 @@ import { AppComponent } from './app.component';
       AppComponent,
       ChartNewCasesComponent,
       ChartTotalCasesComponent,
-      DistrictCasesComponent,
+      DistrictCasesComponent
+
    ],
    imports: [
       BrowserModule,
