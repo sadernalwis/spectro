@@ -15,8 +15,7 @@ import {
 } from 'ng-apexcharts';
 @Component({
   selector: 'app-chart-daily-recovery',
-  templateUrl: './chart-daily-recovery.component.html',
-  styleUrls: ['./chart-daily-recovery.component.scss']
+  templateUrl: './chart-daily-recovery.component.html'
 })
 export class ChartDailyRecoveryComponent implements OnInit {
 

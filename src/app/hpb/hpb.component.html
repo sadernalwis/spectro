@@ -42,7 +42,7 @@
                  Hospitalized
                </p>
                <div class="text-count">
-                 {{ total_deaths? total_deaths :0 }}
+                 {{ hospitalized ? hospitalized:0 }}
                </div>
              </div>
            </div>
@@ -60,7 +60,7 @@
              <div class="data-card data-new-cases">
                <p class="text-red">New cases</p>
                <div class="text-count">
-                 {{ new_cases?new_cases:'0' }}
+                 {{ new_cases ? new_cases:'0' }}
                </div>
              </div>
 
@@ -69,7 +69,7 @@
                  Recovered
                </p>
                <div class="text-count">
-                 {{ new_recovery?new_recovery:'0' }}
+                 {{ new_recovery ? new_recovery :'0' }}
                </div>
              </div>
            </div>
@@ -80,7 +80,7 @@
                  Deaths
                </p>
                <div class="text-count">
-                 {{ new_deaths?new_deaths:'0' }}
+                 {{ new_deaths ? new_deaths:'0' }}
                </div>
              </div>
 
@@ -89,7 +89,7 @@
                  Growth Rate
                </p>
                <div class="text-count">
-                 2.96%
+                 {{ growth_rate + '%' }}
                </div>
              </div>
            </div>

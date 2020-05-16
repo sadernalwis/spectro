@@ -14,8 +14,7 @@ import {
 } from 'ng-apexcharts';
 @Component({
   selector: 'app-chart-new-cases',
-  templateUrl: './chart-new-cases.component.html',
-  styleUrls: ['./chart-new-cases.component.scss']
+  templateUrl: './chart-new-cases.component.html'
 })
 
 

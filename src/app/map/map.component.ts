@@ -10,11 +10,7 @@ import { DataService } from '../data.service';
     styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit {
-    // mapOptions: google.maps.MapOptions = {
-    //   // center: this.coordinates,
-    //   zoom: 8,
-    //   // styles:
-    // };
+
 
 
     @ViewChild(GoogleMap) gmap: GoogleMap;
@@ -26,8 +22,6 @@ export class MapComponent implements OnInit, AfterViewInit {
     districts: any;
     single_district: any = [];
 
-    // @Output() selectedDistrict = new EventEmitter<string>();
-    // @Output() selectedProvince = new EventEmitter<any[]>();
     @Output() selectedDistrict = new EventEmitter<any[]>();
 
     _hospitals: Hospital[];
@@ -39,7 +33,6 @@ export class MapComponent implements OnInit, AfterViewInit {
 
 
     hospitalMarkerOptions: google.maps.MarkerOptions;
-
     constructor(private dataService: DataService) { }
 
 
@@ -131,7 +124,7 @@ export class MapComponent implements OnInit, AfterViewInit {
             strokeColor: 'black',
             fillColor: 'grey',
             fillOpacity: 0.2
-        })
+        });
 
         this.gmap.data.addListener('mouseover', (event) => {
             // console.log(event.feature.j.province_name);
@@ -434,7 +427,6 @@ export class MapComponent implements OnInit, AfterViewInit {
                 ]
             }
         ]
-
     };
 
 }
