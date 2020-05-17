@@ -11,14 +11,17 @@ export class CurrentStatusComponent implements OnInit {
 
 	hpbResponse: any;
 	daily_updates: any;
-	total_deaths: String;
-	new_deaths: String;
-	new_cases: String;
+	total_deaths: any;
+	new_deaths: any;
+	new_cases: any;
 	new_recovery: any;
 	total_recovered: any;
 	growth_rate: any = 0;
 	local_total_cases: any;
 	hospitalized: any;
+	total_pcr_tested: any = 42056;
+	recovery_rate: any = 54.1;
+	fatality_rate: any = 0.94;
 
 
 	ngOnInit(): void {
@@ -56,6 +59,11 @@ export class CurrentStatusComponent implements OnInit {
 
 		this.daily_updates = this.daily_updates.split(/\r\n|\n/)[3].split(',').reverse();
 		this.new_recovery = Math.floor(this.total_recovered) - Math.floor(this.daily_updates[0]);
+
+		this.total_pcr_tested = this.hpbResponse.data.total_pcr_testing_count;
+
+		this.recovery_rate = ((this.total_recovered / this.local_total_cases) * 100).toFixed(2);
+		this.fatality_rate = ((this.total_deaths / this.local_total_cases) * 100).toFixed(2);
 
 	}
 

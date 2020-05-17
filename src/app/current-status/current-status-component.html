@@ -105,48 +105,40 @@
        </div>
 
        <div class="card-content">
+         <p>
+           &nbsp;
+         </p>
          <div class="card-sub-title">
            PCR TESTING STATUS
          </div>
 
-         <div class="data-today">
-           <div>
-             <div class="data-card data-new-cases">
-               <p class="text-red">New cases</p>
-               <div class="text-count">
-                 {{ new_cases ? new_cases:'0' }}
-               </div>
+         <div class="data-tested">
+           <div class="data-card data-pcr-tested">
+             <p class="text-blue">Total PCR Tested</p>
+             <div class="text-count">
+               {{ total_pcr_tested }}
              </div>
+           </div>
+         </div>
 
-             <div class="data-card data-new-recovered">
-               <p class="text-green">
-                 Recovered
-               </p>
-               <div class="text-count">
-                 {{ new_recovery ? new_recovery :'0' }}
-               </div>
+         <div class="date-rates">
+           <div class="data-card data-recovery-rate">
+             <p class="text-green">
+               Recovery Rate
+             </p>
+             <div class="text-count">
+               {{ recovery_rate }}%
+             </div>
+           </div>
+           <div class="data-card data-fatality-rate">
+             <p class="text-red">
+               Fatality Rate
+             </p>
+             <div class="text-count">
+               {{ fatality_rate }}%
              </div>
            </div>
 
-           <div>
-             <div class="data-card data-new-deaths">
-               <p class="text-black">
-                 Deaths
-               </p>
-               <div class="text-count">
-                 {{ new_deaths ? new_deaths:'0' }}
-               </div>
-             </div>
-
-             <div class="data-card data-growth-rate">
-               <p class="text-black">
-                 Growth Rate
-               </p>
-               <div class="text-count">
-                 {{ growth_rate + '%' }}
-               </div>
-             </div>
-           </div>
          </div>
        </div>
      </div>

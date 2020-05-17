@@ -60,7 +60,7 @@ div.data-current-card {
     border: thin solid #ebebeb;
     min-width: 160px;
     border-radius: 6px;
-    padding: 15px;
+    padding: 10px;
     margin: 0px 0px 20px 0px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, .12);
 
@@ -69,11 +69,25 @@ div.data-current-card {
       font-size: 12px;
       display: block;
       margin: 0px 0px 0px 0px;
+      text-align: Center;
     }
 
     div.text-count {
       font-size: 30px;
+      text-align: Center;
       font-weight: 700;
+    }
+  }
+
+  @media (max-width:767px) {
+    div.data-card {
+      min-width: 145px;
+
+    }
+
+    div.data-confirmed,
+    div.data-recovered {
+      margin-right: 10px;
     }
   }
 
@@ -126,6 +140,43 @@ div.data-current-card {
       color: $c-blue;
     }
   }
+
+
+  div.data-tested {
+
+    div.data-pcr-tested {
+      background: #fff;
+      border: thin solid $c-black;
+
+      div.text-count {
+        color: $c-black;
+      }
+    }
+  }
+
+  div.date-rates {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  div.data-fatality-rate {
+    background: lighten($c-red, 35%);
+
+    div.text-count {
+      color: $c-red;
+    }
+
+    border:thin solid $c-red;
+  }
+
+  div.data-recovery-rate {
+    div.text-count {
+      color: $c-green;
+    }
+
+    background:#fff;
+    border:thin solid $c-green;
+  }
 }
 
 div.district-cases-card {
@@ -151,7 +202,7 @@ div.data-map-card {
 
   .map-container {
     width: 100% !important;
-    height: 860px !important;
+    height: 800px !important;
 
     h4 {
       font-size: 14px;
@@ -295,7 +346,7 @@ div.card.news-card {
 
   div.card-body {
     overflow-y: scroll;
-    height: 486px;
+    height: 698px;
   }
 
   ul {
@@ -360,7 +411,7 @@ div.card.news-card {
 
       div.news-author {
         img {
-          height: 26px;
+          height: 20px;
         }
       }
 
@@ -403,6 +454,115 @@ div.card.news-card {
         }
       }
 
+    }
+  }
+}
+
+div.map-marker-selection {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: #ffffff1f;
+  border-radius: 4px;
+  width: 240px;
+  z-index: 3000;
+
+  ul {
+    margin: 0px;
+
+
+    li {
+      display: block;
+      list-style: none;
+      padding: 10px 20px 7px 20px;
+      border-bottom: thin solid rgb(152, 152, 152)1f;
+      color: #fff;
+      cursor: pointer;
+
+      &:hover {
+        background: #000;
+      }
+    }
+
+    li:first-child {
+      border-radius: 4px 4px 0px 0px;
+    }
+
+    li:last-child {
+      border: none;
+      border-radius: 0px 0px 4px 4px;
+    }
+
+
+    label {
+      font-size: 12px;
+      margin: 0px;
+    }
+
+    input {
+      margin-right: 15px;
+    }
+  }
+}
+
+
+div.information-center,
+div.prevention-tips {
+
+  div.card-title {
+    color: #fff;
+    background: $c-blue;
+  }
+
+  ul {
+    margin: 0px;
+
+    li {
+      list-style: none;
+
+      a {
+        display: block;
+        padding: 7px 15px;
+        border-radius: 6px;
+        background: #dcedff;
+        color: #000;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        margin-bottom: 8px;
+        transition: 0.1s ease;
+
+        &:active {
+          transform: scale(0.95);
+        }
+
+        &:hover {
+          background: #f1f1f1;
+        }
+
+        span {
+          display: block;
+          font-size: 12px;
+          font-weight: normal;
+          color: #666;
+        }
+      }
+    }
+  }
+}
+
+div.prevention-tips {
+  ul {
+    li {
+      display: flex;
+
+      img {
+        width: 32px;
+        margin-right: 7px;
+      }
+
+      font-size: 14px;
+      margin: 0px 0px 11px 0px;
     }
   }
 }

@@ -21,6 +21,12 @@ export class MapComponent implements OnInit, AfterViewInit {
     zoom: number;
     districts: any;
     single_district: any = [];
+    activeMarkers: any;
+    mapType: "district";
+
+
+
+
 
     @Output() selectedDistrict = new EventEmitter<any[]>();
 
@@ -42,7 +48,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     district_infections = [];
     other_infections = [];
 
-    di: Object;
+    di: any;
     marker_url: any;
     district_name: any;
 
@@ -61,23 +67,18 @@ export class MapComponent implements OnInit, AfterViewInit {
             }
 
             this.di = new Object({
-                marker_options: {
-                    icon: this.marker_url,
-                    animation: google.maps.Animation.DROP
-                },
-                label_options: {
+                position: v.location,
+                icon: this.marker_url,
+                animation: google.maps.Animation.DROP,
+                label: {
                     text: v.count + '',
                     color: '#ffffff',
                     fontWeight: 'bold',
                     fontSize: '17px',
                     fontFamily: "Poppins',sans-serif"
                 },
-                infowindow_options: {
-                    content: v.name
-                },
-                location: v.location,
+                zIndex: 2000,
                 title: v.name,
-                count: v.count
             });
 
             if (v.location != null) {
@@ -428,5 +429,28 @@ export class MapComponent implements OnInit, AfterViewInit {
             }
         ]
     };
+
+
+    updateMarkers(s: any) {
+
+        console.log(this.mapType);
+        if (s === 'district') {
+            this.activeMarkers = this.district_infections;
+        }
+
+        if (s === 'pcr') {
+            this.activeMarkers = null;
+        }
+
+        if (s === 'drones') {
+            this.activeMarkers = [{
+
+            },
+            {
+
+            }];
+        }
+
+    }
 
 }

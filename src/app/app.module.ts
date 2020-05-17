@@ -23,6 +23,7 @@ import { ChartNewCasesComponent } from './chart-new-cases/chart-new-cases.compon
 import { ChartTotalCasesComponent } from './chart-total-cases/chart-total-cases.component';
 import { DistrictCasesComponent } from './district-cases/district-cases.component';
 import { AppComponent } from './app.component';
+import { InfoCenterComponent } from './info-center/info-center.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AppComponent } from './app.component';
       AppComponent,
       ChartNewCasesComponent,
       ChartTotalCasesComponent,
-      DistrictCasesComponent
+      DistrictCasesComponent,
+      InfoCenterComponent
 
    ],
    imports: [

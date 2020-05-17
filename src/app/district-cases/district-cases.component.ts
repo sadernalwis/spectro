@@ -82,7 +82,7 @@ export class DistrictCasesComponent implements OnInit {
       },
       yaxis: {
         min: 0,
-        max: 500,
+        max: 600,
         title: {
           text: ''
         }
