@@ -10,11 +10,7 @@ import { DataService } from '../data.service';
     styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit {
-    // mapOptions: google.maps.MapOptions = {
-    //   // center: this.coordinates,
-    //   zoom: 8,
-    //   // styles:
-    // };
+
 
 
     @ViewChild(GoogleMap) gmap: GoogleMap;
@@ -25,9 +21,13 @@ export class MapComponent implements OnInit, AfterViewInit {
     zoom: number;
     districts: any;
     single_district: any = [];
+    activeMarkers: any;
+    mapType: "district";
 
-    // @Output() selectedDistrict = new EventEmitter<string>();
-    // @Output() selectedProvince = new EventEmitter<any[]>();
+
+
+
+
     @Output() selectedDistrict = new EventEmitter<any[]>();
 
     _hospitals: Hospital[];
@@ -39,7 +39,6 @@ export class MapComponent implements OnInit, AfterViewInit {
 
 
     hospitalMarkerOptions: google.maps.MarkerOptions;
-
     constructor(private dataService: DataService) { }
 
 
@@ -49,7 +48,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     district_infections = [];
     other_infections = [];
 
-    di: Object;
+    di: any;
     marker_url: any;
     district_name: any;
 
@@ -68,23 +67,18 @@ export class MapComponent implements OnInit, AfterViewInit {
             }
 
             this.di = new Object({
-                marker_options: {
-                    icon: this.marker_url,
-                    animation: google.maps.Animation.DROP
-                },
-                label_options: {
+                position: v.location,
+                icon: this.marker_url,
+                animation: google.maps.Animation.DROP,
+                label: {
                     text: v.count + '',
                     color: '#ffffff',
                     fontWeight: 'bold',
                     fontSize: '17px',
                     fontFamily: "Poppins',sans-serif"
                 },
-                infowindow_options: {
-                    content: v.name
-                },
-                location: v.location,
+                zIndex: 2000,
                 title: v.name,
-                count: v.count
             });
 
             if (v.location != null) {
@@ -131,7 +125,7 @@ export class MapComponent implements OnInit, AfterViewInit {
             strokeColor: 'black',
             fillColor: 'grey',
             fillOpacity: 0.2
-        })
+        });
 
         this.gmap.data.addListener('mouseover', (event) => {
             // console.log(event.feature.j.province_name);
@@ -434,7 +428,29 @@ export class MapComponent implements OnInit, AfterViewInit {
                 ]
             }
         ]
-
     };
+
+
+    updateMarkers(s: any) {
+
+        console.log(this.mapType);
+        if (s === 'district') {
+            this.activeMarkers = this.district_infections;
+        }
+
+        if (s === 'pcr') {
+            this.activeMarkers = null;
+        }
+
+        if (s === 'drones') {
+            this.activeMarkers = [{
+
+            },
+            {
+
+            }];
+        }
+
+    }
 
 }

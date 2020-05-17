@@ -3,11 +3,40 @@
     Islandwide Confirmed Cases
   </div>
   <div class="card-body">
+
+    <!-- <div class="map-marker-selection">
+      <ul>
+        <li>
+          <div>
+            <input [ngModel]="mapType" value="district" type="radio" id="district-markers"
+              (click)="updateMarkers('district')" name="mapType">
+            <label for="district-markers">District-wise covid cases </label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input type="radio" [ngModel]="mapType" id="pcr-centers" (click)="updateMarkers('pcr')" value="pcr"
+              name="mapType">
+            <label for="pcr-centers">PCR Test centers</label>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <input type="radio" [ngModel]="mapType" id="active-drones" (click)="updateMarkers('drones')" value="drones"
+              name="mapType">
+            <label for="active-drones">Active Drones</label>
+          </div>
+        </li>
+      </ul>
+
+    </div> -->
+
     <google-map [center]="center" [zoom]="zoom">
-      <map-marker #marker *ngFor="let hospital of hospitals" [position]="hospital.location" [title]="hospital.name">
-      </map-marker>
-      <map-marker #marker *ngFor="let i of district_infections" [position]="i.location" [label]='i.label_options'
-        [title]="i.title" [options]='i.marker_options' (mapMouseover)="openInfoWindow(marker,i.title)">
+      <!-- <map-marker #marker *ngFor="let hospital of hospitals" [position]="hospital.location" [title]="hospital.name">
+      </map-marker> -->
+      <map-marker #marker *ngFor="let i of district_infections" [options]='i'
+        (mapMouseover)="openInfoWindow(marker,i.title)">
         <map-info-window>
           <h4>
             {{ district_name }}

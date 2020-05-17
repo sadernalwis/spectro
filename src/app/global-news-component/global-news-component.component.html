@@ -1,15 +1,58 @@
-<div *ngFor="let article of news.articles">
-  <a style="text-decoration:none" href="{{ article.url }}" rel="noopener noreferrer" target="_blank">
-    <p class="title">
-      {{ article.title.toUpperCase() }}
-    </p>
-    <div class="img-div">
-      <img class="img" src="{{ article.urlToImage }}" />
-    </div>
-    <p class="content">
-      {{ article.content.toUpperCase() }}
-    </p>
+<div class="card news-card">
+  <div class="card-title">
+    COVID-19 News - Sri Lanka
+  </div>
 
-  </a>
+  <!-- <div class="card-body">
+    <ul>
+      <li *ngFor="let article of news.articles">
+        <a href="{{ article.url }}" target="_blank">
+          <div class="d-flex">
+            <div class="news-img">
+              <img src="{{ article.urlToImage }}" />
+            </div>
+            <div class="news-body">
+              <h3>
+                {{ article.title }}
+              </h3>
+              <p>
+                {{ article.content | slice:0:72 }}...
+              </p>
+            </div>
 
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div> -->
+
+  <div class="card-body">
+    <ul>
+      <li *ngFor="let article of sl_news">
+        <a href="{{ article.url }}" target="_blank">
+          <div class="d-flex">
+            <div class="news-img">
+              <img src="{{ article.image }}" />
+            </div>
+            <div class="news-body">
+              <h3>
+                {{ article.title }}
+              </h3>
+              <p>
+                {{ article.body | slice:0:60 }}...
+              </p>
+            </div>
+          </div>
+          <div class="news-info">
+            <div class="news-date">{{ article.date }}</div>
+            <div class="news-author">
+              <img
+                src="https://raw.githubusercontent.com/shandhiviyarajan/covid-19-sl-data/master/logos/{{ article.author }}.png"
+                alt="">
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

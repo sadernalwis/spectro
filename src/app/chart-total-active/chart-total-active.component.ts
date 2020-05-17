@@ -32,10 +32,7 @@ export class ChartTotalActiveComponent implements OnInit {
   date_list: any;
   d: any;
   constructor(private dataService: DataService) {
-
     this.getDailyUpdates();
-
-
   }
 
   async getDailyUpdates() {
@@ -48,10 +45,7 @@ export class ChartTotalActiveComponent implements OnInit {
     this.daily_cases.forEach((v, i) => {
       this.d = v - (this.daily_recovery[i]);
       this.daily_active.push(this.d);
-
     });
-
-    console.log(this.daily_cases);
 
     this.chartOptions = {
       series: [
