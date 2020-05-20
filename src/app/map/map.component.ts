@@ -11,6 +11,8 @@ import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import * as MarkerClusterer from '@google/markerclustererplus';
 import { Hospital } from '../hospitals/hospital';
 import { DataService } from '../data.service';
+import { mark } from '@angular/compiler-cli/src/ngtsc/perf/src/clock';
+import { SocketService } from '../services/socket.service';
 
 @Component({
   selector: 'app-map',
@@ -20,7 +22,8 @@ import { DataService } from '../data.service';
 export class MapComponent implements OnInit, AfterViewInit {
   @ViewChild(GoogleMap) gmap: GoogleMap;
   @ViewChild(MapInfoWindow, { static: false }) infoWindow: MapInfoWindow;
-
+  @ViewChild(MapInfoWindow, { static: false }) droneInfoWindow: MapInfoWindow;
+  markerPositions = [];
   center: Object = { lat: 7.669722 + 0.2, lng: 80.645556 + 0.5 };
   nalanda_gedige: any;
   zoom: number;
@@ -41,15 +44,40 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   hospitalMarkerOptions: google.maps.MarkerOptions;
-  constructor(private dataService: DataService) {}
-
   label_options: any;
   district_infections = [];
   other_infections = [];
 
   di: any;
   marker_url: any;
+  drone_marker_url = '/assets/images/drone.svg';
   district_name: any;
+  drone_name = 'Drone';
+
+  constructor(
+    private dataService: DataService,
+    private socketService: SocketService
+  ) {}
+
+  ngOnInit(): void {
+    // this.nalanda_gedige ={ lat: 7.669722, lng: 80.645556 };
+    this.nalanda_gedige = { lat: 7.669722 + 0.2, lng: 80.645556 + 0.5 };
+    // this.center = { lat: 7.8774222, lng: 80.7003428 };
+    this.center = this.nalanda_gedige;
+    this.zoom = 7;
+
+    this.hospitalMarkerOptions = {
+      icon: '/assets/hospital-marker.png',
+    };
+
+    this.getDistrictData();
+
+    // Listening to the socket server topic of 'CLIENT'
+    this.socketService.getMessages('CLIENT').subscribe((data) => {
+      console.log('data', data);
+      this.addMarker(data);
+    });
+  }
 
   async getDistrictData() {
     this.districts = await this.dataService.getDistrictData().toPromise();
@@ -93,18 +121,31 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.district_name = title;
   }
 
-  ngOnInit(): void {
-    // this.nalanda_gedige ={ lat: 7.669722, lng: 80.645556 };
-    this.nalanda_gedige = { lat: 7.669722 + 0.2, lng: 80.645556 + 0.5 };
-    // this.center = { lat: 7.8774222, lng: 80.7003428 };
-    this.center = this.nalanda_gedige;
-    this.zoom = 7;
+  openDroneWindow(marker: MapMarker, title: any) {
+    // this.droneInfoWindow.options.content = '<h4>asdas</h4>';
+    console.log('marker', marker);
+    this.droneInfoWindow.open(marker);
+  }
 
-    this.hospitalMarkerOptions = {
-      icon: '/assets/hospital-marker.png',
+  addMarker(data) {
+    const { lat, lng } = JSON.parse(data);
+    console.log('data', lat, lng);
+    const marker = {
+      id: 'sadasdas',
+      position: { lat, lng },
+      icon: this.drone_marker_url,
+      animation: google.maps.Animation.DROP,
+      label: {
+        text: 'Drone 1',
+        color: '#ffffff',
+        fontWeight: 'bold',
+        fontSize: '12px',
+        fontFamily: "Poppins',sans-serif",
+      },
+      zIndex: 2001,
+      title: 'Drone 1',
     };
-
-    this.getDistrictData();
+    this.markerPositions.push(marker);
   }
 
   ngAfterViewInit(): void {
