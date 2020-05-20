@@ -152,8 +152,8 @@ export class MapComponent implements OnInit, AfterViewInit {
     } else {
       console.log('marker index', markerIndex);
       this.dronePositions[markerIndex].position = {
-        lat: 6.8797623,
-        lng: 79.8903079,
+        lat,
+        lng,
       };
     }
   }
