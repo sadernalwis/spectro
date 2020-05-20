@@ -3,6 +3,7 @@
     Islandwide Confirmed Cases
   </div>
   <div class="card-body">
+
     <!-- <div class="map-marker-selection">
       <ul>
         <li>
@@ -34,29 +35,16 @@
     <google-map [center]="center" [zoom]="zoom">
       <!-- <map-marker #marker *ngFor="let hospital of hospitals" [position]="hospital.location" [title]="hospital.name">
       </map-marker> -->
-      <map-marker
-        #marker
-        *ngFor="let i of district_infections"
-        [options]="i"
-        (mapMouseover)="openInfoWindow(marker, i.title)"
-      >
+      <map-marker #marker *ngFor="let i of district_infections" [options]='i'
+        (mapMouseover)="openInfoWindow(marker,i.title)">
         <map-info-window>
           <h4>
             {{ district_name }}
           </h4>
         </map-info-window>
       </map-marker>
-      <map-marker
-        #droneMarker
-        *ngFor="let markerPosition of dronePositions"
-        [options]="markerPosition"
-        [position]="markerPosition.position"
-        (mapMouseover)="openInfoWindow(droneMarker, 'kkkk')"
-      >
-        <map-info-window>
-          <h4>sadasdasd</h4>
-        </map-info-window>
-      </map-marker>
+
     </google-map>
+
   </div>
 </div>

@@ -30,7 +30,6 @@
     "csvtojson": "^2.0.10",
     "ng-apexcharts": "^1.2.3",
     "rxjs": "~6.5.4",
-    "socket.io-client": "^2.3.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
