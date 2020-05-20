@@ -22,8 +22,7 @@ import { SocketService } from '../services/socket.service';
 export class MapComponent implements OnInit, AfterViewInit {
   @ViewChild(GoogleMap) gmap: GoogleMap;
   @ViewChild(MapInfoWindow, { static: false }) infoWindow: MapInfoWindow;
-  @ViewChild(MapInfoWindow, { static: false }) droneInfoWindow: MapInfoWindow;
-  markerPositions = [];
+  dronePositions = [];
   center: Object = { lat: 7.669722 + 0.2, lng: 80.645556 + 0.5 };
   nalanda_gedige: any;
   zoom: number;
@@ -77,6 +76,12 @@ export class MapComponent implements OnInit, AfterViewInit {
       console.log('data', data);
       this.addMarker(data);
     });
+
+    //   Removing the markers on disconnection
+    this.socketService.getMessages('DISCONNECT').subscribe((data) => {
+      console.log('disconnect', data);
+      this.removeDroneMarker(data);
+    });
   }
 
   async getDistrictData() {
@@ -121,31 +126,49 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.district_name = title;
   }
 
-  openDroneWindow(marker: MapMarker, title: any) {
-    // this.droneInfoWindow.options.content = '<h4>asdas</h4>';
-    console.log('marker', marker);
-    this.droneInfoWindow.open(marker);
+  addMarker(data) {
+    const { lat, lng, id } = data;
+    const markerIndex = this.dronePositions.findIndex(
+      (marker) => marker && marker.id === id
+    );
+    if (markerIndex === -1) {
+      console.log('data', lat, lng);
+      const marker = {
+        id,
+        position: { lat, lng },
+        icon: this.drone_marker_url,
+        animation: google.maps.Animation.DROP,
+        label: {
+          text: 'Drone 1',
+          color: '#ffffff',
+          fontWeight: 'bold',
+          fontSize: '12px',
+          fontFamily: "Poppins',sans-serif",
+        },
+        zIndex: 2001,
+        title: 'Drone 1',
+      };
+      this.dronePositions.push(marker);
+    } else {
+      console.log('marker index', markerIndex);
+      this.dronePositions[markerIndex].position = {
+        lat: 6.8797623,
+        lng: 79.8903079,
+      };
+    }
   }
 
-  addMarker(data) {
-    const { lat, lng } = JSON.parse(data);
-    console.log('data', lat, lng);
-    const marker = {
-      id: 'sadasdas',
-      position: { lat, lng },
-      icon: this.drone_marker_url,
-      animation: google.maps.Animation.DROP,
-      label: {
-        text: 'Drone 1',
-        color: '#ffffff',
-        fontWeight: 'bold',
-        fontSize: '12px',
-        fontFamily: "Poppins',sans-serif",
-      },
-      zIndex: 2001,
-      title: 'Drone 1',
-    };
-    this.markerPositions.push(marker);
+  /**
+   * Removing the drone marker from the google map
+   * @param data - socket io data containing socket id of the connection
+   */
+  removeDroneMarker(data) {
+    // Getting socket id from the server
+    const { id } = data;
+    const markerIndex = this.dronePositions.findIndex(
+      (marker) => marker && marker.id === id
+    );
+    this.dronePositions.splice(markerIndex, 1);
   }
 
   ngAfterViewInit(): void {

@@ -48,12 +48,13 @@
       </map-marker>
       <map-marker
         #droneMarker
-        *ngFor="let markerPosition of markerPositions"
+        *ngFor="let markerPosition of dronePositions"
         [options]="markerPosition"
-        (mapMouseover)="openDroneWindow(droneMarker, markerPosition.title)"
+        [position]="markerPosition.position"
+        (mapMouseover)="openInfoWindow(droneMarker, 'kkkk')"
       >
         <map-info-window>
-          <h4>alt : -62.12312</h4>
+          <h4>sadasdasd</h4>
         </map-info-window>
       </map-marker>
     </google-map>
